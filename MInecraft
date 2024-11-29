@@ -1,0 +1,30 @@
+\
+
+# Constants
+TICKS_PER_SEC = 60
+WALKING_SPEED = 5
+FLYING_SPEED = 15
+GRAVITY = 20.0
+JUMP_SPEED = 8
+TERMINAL_VELOCITY = 50
+PLAYER_HEIGHT = 2
+
+# World data
+world = {}
+block_size = 1
+textures = {}
+
+def texture_coordinates(x, y, width=16, height=16):
+    """ Get texture coordinates for a block. """
+    return (
+        x / width, y / height,
+        (x + block_size) / width, y / height,
+        (x + block_size) / width, (y + block_size) / height,
+        x / width, (y + block_size) / height,
+    )
+
+def cube_vertices(x, y, z, size):
+    """ Generate the vertices for a cube at a given position. """
+    return [
+        x - size, y - size, z - size,
+        x + size, y - size, z +
